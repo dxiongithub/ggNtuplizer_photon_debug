@@ -1,11 +1,12 @@
-//this version is for out-of-time photon analysis, added "o" for everything.
-//edited by De-Lin Macive Xiong, Florida State University, 8.12.2019
-
-//03.02.2020 adding detid info for eta-wing spike estimate
-
-//03.17.2020 adding seed ieta iphi directly in in-time and out-of-time region.
-
-//03.27.2020 debugging the break segment....
+//for getting crystal detid and photon seed detid
+//L 21 - 27 crsy array declared 
+//L 30 - 33 seed detid declared 
+//L 176 - 182 crys detid branch 
+//L 185 - 189 seed detid branch 
+//L 394 - 414 fill crys detid 
+//L 512 - 522 fill oot deitd 
+//L 758 - 768 fill it detid
+//version 4 -> failed
 
 //for getting detid
 #include "Geometry/CaloGeometry/interface/CaloGeometry.h"
@@ -22,16 +23,7 @@
 
 using namespace std;
 
-/*
-//detid info
-Int_t   nAllCellsEB_;
-Int_t   AllCellsIEtaEB_;
-Int_t   AllCellsIPhiEB_;
-Float_t AllCellsE_EB_;
-Int_t   AllClusteredEB_;
-Float_t AllFracEB_;
-Float_t AllTimeEB_;
-*/
+
 
 //array
 Int_t   nAllCellsEB;
@@ -189,17 +181,6 @@ bool isInFootprint(const T& thefootprint, const U& theCandidate) {
 void ggNtuplizer::branchesPhotons(TTree* tree) {
 
     //detid info
-    
-    /*
-    tree->Branch("nAllCellsEB", &nAllCellsEB_);
-    tree->Branch("AllCellsIEtaEB", &AllCellsIEtaEB_);
-    tree->Branch("AllCellsIPhiEB", &AllCellsIPhiEB_);  
-    tree->Branch("AllCellsE_EB", &AllCellsE_EB_);
-    tree->Branch("AllClusteredEB", &AllClusteredEB_);
-    tree->Branch("AllFracEB", &AllFracEB_);
-    tree->Branch("AllTimeEB", &AllTimeEB_);
-    */
-
     tree->Branch("nAllCellsEB", &nAllCellsEB, "nAllCellsEB/I");
     tree->Branch("AllCellsIEtaEB", &AllCellsIEtaEB, "AllCellsIEtaEB[nAllCellsEB]/I");
     tree->Branch("AllCellsIPhiEB", &AllCellsIPhiEB, "AllCellsIPhiEB[nAllCellsEB]/I");  
@@ -427,13 +408,6 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
 
     nAllCellsEB = 0;
 
-    /*
-    AllCellsIEtaEB_ = -99;
-    AllCellsIPhiEB_ = -99;
-    AllCellsE_EB_   = -99;
-    AllTimeEB_      = -99;
-    */
-
     for (EcalRecHitCollection::const_iterator it = rechitsCollectionEB_->begin();it!=rechitsCollectionEB_->end() && nAllCellsEB<30000;++it)
     {
         //array
@@ -442,14 +416,6 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
         AllCellsIPhiEB[nAllCellsEB]=dit.iphi();
         AllCellsE_EB[nAllCellsEB]=it->energy();
         AllTimeEB[nAllCellsEB]=it->time();
-
-        /*
-        EBDetId dit = it->detid();
-        AllCellsIEtaEB_ = dit.ieta();
-        AllCellsIPhiEB_ = dit.iphi();
-        AllCellsE_EB_   = it->energy();
-        AllTimeEB_      = it->time();
-        */
 
         nAllCellsEB++;
 
@@ -550,7 +516,18 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
       ophoSeedTime_  .push_back(-99.);
       ophoSeedEnergy_.push_back(-99.);
     }
-
+	
+    if (it != rechitsCollectionEB_->end())
+    {
+        EBDetId dit    = it->detid();
+        ophoSeedIEta_  = dit.ieta();
+        ophoSeedIPhi_  = dit.iphi();
+    }
+    else
+    {
+        ophoSeedIEta_  = -99.;
+        ophoSeedIPhi_  = -99.;
+    }
 
     unsigned short nSaturated = 0, nLeRecovered = 0, nNeighRecovered = 0, nGain1 = 0, nGain6 = 0, nWeired = 0;
     int isSaturated       = 0;
@@ -623,20 +600,6 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
     
     
     onPho_++;
-
-
-
-    if (it != rechitsCollectionEB_->end())
-    {
-        EBDetId dit    = it->detid();
-        ophoSeedIEta_  = dit.ieta();
-        ophoSeedIPhi_  = dit.iphi();
-    }
-    else
-    {
-        ophoSeedIEta_  = -99.;
-        ophoSeedIPhi_  = -99.;
-    }
 
   }
 
@@ -800,7 +763,17 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
       phoSeedEnergy_.push_back(-99.);
     }
 
-
+    if (it != rechitsCollectionEB_->end())
+    {
+        EBDetId dit   = it->detid();
+        phoSeedIEta_  = dit.ieta();
+        phoSeedIPhi_  = dit.iphi();
+    }
+    else
+    {
+        phoSeedIEta_  = -99.;
+        phoSeedIPhi_  = -99.;
+    }
     
     unsigned short nSaturated = 0, nLeRecovered = 0, nNeighRecovered = 0, nGain1 = 0, nGain6 = 0, nWeired = 0;
     int isSaturated       = 0;
@@ -873,19 +846,6 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
     
     
     nPho_++;
-
-
-    if (it != rechitsCollectionEB_->end())
-    {
-        EBDetId dit   = it->detid();
-        phoSeedIEta_  = dit.ieta();
-        phoSeedIPhi_  = dit.iphi();
-    }
-    else
-    {
-        phoSeedIEta_  = -99.;
-        phoSeedIPhi_  = -99.;
-    }
     
   }
 
@@ -894,11 +854,4 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
 void ggNtuplizer::cleanupPhotons() {
 
 }
-
-
-//03.30.2020 debuggin the break segment
-//move the seed detid out of the photon scope and placed anywhere -> failed
-//move the seed detid out of the photon scope and placed in AllCellsEB scope -> failed, how to determine oot and it?
-//move the seed detid after npho++
-
 
