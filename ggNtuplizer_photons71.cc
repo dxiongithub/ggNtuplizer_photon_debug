@@ -6,6 +6,8 @@
 //L 400 - 418 crystal detid fill -> iterator = crys
 //L 517-529 oot seed detid fill -> iterator = ot
 //L 764-776 it seed detid fill -> iterator = it
+//oot photon info fill -> iterator oPho
+//it photon info fill -> iterator iPho
 //version 7-1 failed
 
 
