@@ -3,10 +3,10 @@
 //L 33 - 36 photonseed detid declared
 //L 180 - 186 crys detid branch
 //L 190-193 seed detid branch
-//L 400 - 418 crystal detid fill 
-//L 517-529 oot seed detid fill 
-//L 764-776 it seed detid fill
-//failed
+//L 400 - 418 crystal detid fill -> iterator = crys
+//L 517-529 oot seed detid fill -> iterator = ot
+//L 764-776 it seed detid fill -> iterator = it
+//version 7-1 failed
 
 
 //for getting detid
