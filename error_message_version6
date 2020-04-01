@@ -1,0 +1,72 @@
+root [0] .L temp6.C
+temp6 l
+l.root [1] temp6 l
+Lo(temp6 &) @0x7fac7f3fb000
+root [2] l.Loop()
+Start running analysis on temp6.C....
+start time: Wed Apr  1 10:39:33 2020
+ (CT)
+Processed: 0
+Processed: 10000
+Processed: 20000
+Processed: 30000
+
+Thread 6 (Thread 0x7fac7c546700 (LWP 28660)):
+#0  0x00000031674e5499 in syscall () from /lib64/libc.so.6
+#1  0x00007fac7f18786f in XrdSys::LinuxSemaphore::Wait (this=0x387efc0) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdSys/XrdSysLinuxSemaphore.hh:161
+#2  XrdCl::SyncQueue<XrdCl::JobManager::JobHelper>::Get (this=0x39eaa48) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdCl/XrdClSyncQueue.hh:67
+#3  XrdCl::JobManager::RunJobs (this=0x39eaa30) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:146
+#4  0x00007fac7f187a29 in RunRunnerThread (arg=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:33
+#5  0x0000003167c07aa1 in start_thread () from /lib64/libpthread.so.0
+#6  0x00000031674e8c4d in clone () from /lib64/libc.so.6
+
+Thread 5 (Thread 0x7fac7cf47700 (LWP 28659)):
+#0  0x00000031674e5499 in syscall () from /lib64/libc.so.6
+#1  0x00007fac7f18786f in XrdSys::LinuxSemaphore::Wait (this=0x387efc0) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdSys/XrdSysLinuxSemaphore.hh:161
+#2  XrdCl::SyncQueue<XrdCl::JobManager::JobHelper>::Get (this=0x39eaa48) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdCl/XrdClSyncQueue.hh:67
+#3  XrdCl::JobManager::RunJobs (this=0x39eaa30) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:146
+#4  0x00007fac7f187a29 in RunRunnerThread (arg=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:33
+#5  0x0000003167c07aa1 in start_thread () from /lib64/libpthread.so.0
+#6  0x00000031674e8c4d in clone () from /lib64/libc.so.6
+
+Thread 4 (Thread 0x7fac7d948700 (LWP 28658)):
+#0  0x00000031674e5499 in syscall () from /lib64/libc.so.6
+#1  0x00007fac7f18786f in XrdSys::LinuxSemaphore::Wait (this=0x387efc0) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdSys/XrdSysLinuxSemaphore.hh:161
+#2  XrdCl::SyncQueue<XrdCl::JobManager::JobHelper>::Get (this=0x39eaa48) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdCl/XrdClSyncQueue.hh:67
+#3  XrdCl::JobManager::RunJobs (this=0x39eaa30) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:146
+#4  0x00007fac7f187a29 in RunRunnerThread (arg=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:33
+#5  0x0000003167c07aa1 in start_thread () from /lib64/libpthread.so.0
+#6  0x00000031674e8c4d in clone () from /lib64/libc.so.6
+
+Thread 3 (Thread 0x7fac7e349700 (LWP 28657)):
+#0  0x0000003167c0f00d in nanosleep () from /lib64/libpthread.so.0
+#1  0x00007fac7f28c753 in XrdSysTimer::Wait (mills=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdSys/XrdSysTimer.cc:239
+#2  0x00007fac7f12c5f7 in XrdCl::TaskManager::RunTasks (this=0x3a25400) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClTaskManager.cc:244
+#3  0x00007fac7f12c749 in RunRunnerThread (arg=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClTaskManager.cc:37
+#4  0x0000003167c07aa1 in start_thread () from /lib64/libpthread.so.0
+#5  0x00000031674e8c4d in clone () from /lib64/libc.so.6
+
+Thread 2 (Thread 0x7fac7ed4a700 (LWP 28656)):
+#0  0x00000031674e9243 in epoll_wait () from /lib64/libc.so.6
+#1  0x00007fac7f291804 in XrdSys::IOEvents::PollE::Begin (this=0x3a006e0, syncsem=<optimized out>, retcode=<optimized out>, eTxt=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdSys/XrdSysIOEventsPollE.icc:213
+#2  0x00007fac7f28de75 in XrdSys::IOEvents::BootStrap::Start (parg=0x7ffd0b97efe0) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdSys/XrdSysIOEvents.cc:131
+#3  0x00007fac7f28bf78 in XrdSysThread_Xeq (myargs=0x3a0c810) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdSys/XrdSysPthread.cc:86
+#4  0x0000003167c07aa1 in start_thread () from /lib64/libpthread.so.0
+#5  0x00000031674e8c4d in clone () from /lib64/libc.so.6
+
+Thread 1 (Thread 0x7fac896b9940 (LWP 28590)):
+#0  0x00000031674ac8dd in waitpid () from /lib64/libc.so.6
+#1  0x000000316743e4e9 in do_system () from /lib64/libc.so.6
+#2  0x000000316743e820 in system () from /lib64/libc.so.6
+#3  0x00007fac89bf7588 in TUnixSystem::StackTrace() () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCore.so
+#4  0x00007fac86c3f655 in cling::MultiplexInterpreterCallbacks::PrintStackTrace() () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#5  0x00007fac86c3f118 in cling_runtime_internal_throwIfInvalidPointer () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#6  0x00007fac7f3f9588 in ?? ()
+#7  0x0000000000000000 in ?? ()
+Error in <HandleInterpreterException>: Trying to dereference null pointer or trying to call routine taking non-null arguments.
+Execution of your code was aborted.
+In file included from input_line_8:1:
+/uscms_data/d3/dxiong/ggmipall/CMSSW_9_4_13/src/ggAnalysis/ggNtuplizer/test/temp6.C:79:19: warning: null passed to a callee that requires a non-null argument [-Wnonnull]
+            if ((*ophoEt)[opho] > 230.0)
+            
+            //this happens for phoEt[ipho] as well
