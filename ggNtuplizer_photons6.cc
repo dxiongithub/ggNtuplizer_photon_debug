@@ -1,11 +1,10 @@
-//this version is for out-of-time photon analysis, added "o" for everything.
-//edited by De-Lin Macive Xiong, Florida State University, 8.12.2019
+//remove the photon seed detid, keep the allcells array and original photons collection.
+//L 33 - 39 array declared
+//L 201 - 207 tree for crstyal array
+//L 397 - 416 fill crystals detid
+//NO PHOTONSEED DETID filled
+//version 6 -> failed
 
-//03.02.2020 adding detid info for eta-wing spike estimate
-
-//03.17.2020 adding seed ieta iphi directly in in-time and out-of-time region.
-
-//03.27.2020 debugging the break segment....
 
 //for getting detid
 #include "Geometry/CaloGeometry/interface/CaloGeometry.h"
@@ -22,18 +21,8 @@
 
 using namespace std;
 
-/*
-//detid info
-Int_t   nAllCellsEB_;
-Int_t   AllCellsIEtaEB_;
-Int_t   AllCellsIPhiEB_;
-Float_t AllCellsE_EB_;
-Int_t   AllClusteredEB_;
-Float_t AllFracEB_;
-Float_t AllTimeEB_;
-*/
 
-//array
+//detid array
 Int_t   nAllCellsEB;
 Int_t   AllCellsIEtaEB[30000];
 Int_t   AllCellsIPhiEB[30000];
@@ -42,11 +31,6 @@ Int_t   AllClusteredEB[30000];
 Float_t AllFracEB[30000][30];
 Float_t AllTimeEB[30000];
 
-
-Int_t phoSeedIEta_;
-Int_t phoSeedIPhi_;
-Int_t ophoSeedIEta_;
-Int_t ophoSeedIPhi_;
 
 //ootphoton
 Int_t          onPho_;
@@ -189,17 +173,7 @@ bool isInFootprint(const T& thefootprint, const U& theCandidate) {
 void ggNtuplizer::branchesPhotons(TTree* tree) {
 
     //detid info
-    
-    /*
-    tree->Branch("nAllCellsEB", &nAllCellsEB_);
-    tree->Branch("AllCellsIEtaEB", &AllCellsIEtaEB_);
-    tree->Branch("AllCellsIPhiEB", &AllCellsIPhiEB_);  
-    tree->Branch("AllCellsE_EB", &AllCellsE_EB_);
-    tree->Branch("AllClusteredEB", &AllClusteredEB_);
-    tree->Branch("AllFracEB", &AllFracEB_);
-    tree->Branch("AllTimeEB", &AllTimeEB_);
-    */
-
+    //tree for crystals array
     tree->Branch("nAllCellsEB", &nAllCellsEB, "nAllCellsEB/I");
     tree->Branch("AllCellsIEtaEB", &AllCellsIEtaEB, "AllCellsIEtaEB[nAllCellsEB]/I");
     tree->Branch("AllCellsIPhiEB", &AllCellsIPhiEB, "AllCellsIPhiEB[nAllCellsEB]/I");  
@@ -417,22 +391,13 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
   onPho_ = 0;
 
     //detid info 
-
     std::map<DetId, vector<std::pair<Int_t, Float_t> > > crysclusEB;
-
     //getting the info of detid
     edm::Handle<EcalRecHitCollection> ecalhitsCollHEB;
     e.getByToken(ebReducedRecHitCollection_, ecalhitsCollHEB);
     const EcalRecHitCollection* rechitsCollectionEB_ = ecalhitsCollHEB.product();
 
     nAllCellsEB = 0;
-
-    /*
-    AllCellsIEtaEB_ = -99;
-    AllCellsIPhiEB_ = -99;
-    AllCellsE_EB_   = -99;
-    AllTimeEB_      = -99;
-    */
 
     for (EcalRecHitCollection::const_iterator it = rechitsCollectionEB_->begin();it!=rechitsCollectionEB_->end() && nAllCellsEB<30000;++it)
     {
@@ -443,16 +408,7 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
         AllCellsE_EB[nAllCellsEB]=it->energy();
         AllTimeEB[nAllCellsEB]=it->time();
 
-        /*
-        EBDetId dit = it->detid();
-        AllCellsIEtaEB_ = dit.ieta();
-        AllCellsIPhiEB_ = dit.iphi();
-        AllCellsE_EB_   = it->energy();
-        AllTimeEB_      = it->time();
-        */
-
         nAllCellsEB++;
-
     }
 
   //added oPhotonToken in ggNtuplizer.h
@@ -627,28 +583,6 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
   }
   
     
-    /*
-    for (edm::View<pat::Photon>::const_iterator iPho = OOTPhotonsH->begin(); iPho != OOTPhotonsH->end(); ++iPho) {
-
-        DetId seed = (iPho->superCluster()->seed()->hitsAndFractions())[0].first;
-        //bool isBarrel = seed.subdetId() == EcalBarrel;
-        //const EcalRecHitCollection * rechits = (isBarrel?lazyTool.getEcalEBRecHitCollection():lazyTool.getEcalEERecHitCollection());
-                
-        EcalRecHitCollection::const_iterator it = rechitsCollectionEB_->find(seed);
-
-        if (it != rechitsCollectionEB_->end())
-        {
-            EBDetId dit    = it->detid();
-            ophoSeedIEta_  = dit.ieta();
-            ophoSeedIPhi_  = dit.iphi();
-        }
-        else
-        {
-            ophoSeedIEta_  = -99.;
-            ophoSeedIPhi_  = -99.;
-        }
-    }
-    */
 
 
 
@@ -884,41 +818,11 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
     nPho_++;    
   }
 
-    /*
-    for (edm::View<pat::Photon>::const_iterator iPho = photonHandle->begin(); iPho != photonHandle->end(); ++iPho) {
-
-        DetId seed = (iPho->superCluster()->seed()->hitsAndFractions())[0].first;
-        //bool isBarrel = seed.subdetId() == EcalBarrel;
-        //const EcalRecHitCollection * rechits = (isBarrel?lazyTool.getEcalEBRecHitCollection():lazyTool.getEcalEERecHitCollection());
-        
-        EcalRecHitCollection::const_iterator it = rechitsCollectionEB_->find(seed);
-
-        if (it != rechitsCollectionEB_->end())
-        {
-            EBDetId dit   = it->detid();
-            phoSeedIEta_  = dit.ieta();
-            phoSeedIPhi_  = dit.iphi();
-        }
-        else
-        {
-            phoSeedIEta_  = -99.;
-            phoSeedIPhi_  = -99.;
-        }
-    }
-    */
-
 }
 
 void ggNtuplizer::cleanupPhotons() {
 
 }
 
-
-//03.30.2020 debuggin the break segment
-//move the seed detid out of the photon scope and placed anywhere -> failed
-//move the seed detid out of the photon scope and placed in AllCellsEB scope -> failed, how to determine oot and it?
-//move the seed detid after npho++ -> failed
-//another pho seed detid loop not in the photon++ loop -> failed
-//remove the seed detid info. Just keep array and photons collections
 
 
