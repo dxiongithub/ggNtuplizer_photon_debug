@@ -1,0 +1,119 @@
+ *** Break *** bus error
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+
+Thread 6 (Thread 0x7f9b4ec19700 (LWP 1299)):
+#0  0x0000003db44e5499 in syscall () from /lib64/libc.so.6
+#1  0x00007f9b5188086f in XrdSys::LinuxSemaphore::Wait (this=0x2aef590) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdSys/XrdSysLinuxSemaphore.hh:161
+#2  XrdCl::SyncQueue<XrdCl::JobManager::JobHelper>::Get (this=0x341cd78) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdCl/XrdClSyncQueue.hh:67
+#3  XrdCl::JobManager::RunJobs (this=0x341cd60) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:146
+#4  0x00007f9b51880a29 in RunRunnerThread (arg=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:33
+#5  0x0000003db4c07aa1 in start_thread () from /lib64/libpthread.so.0
+#6  0x0000003db44e8c4d in clone () from /lib64/libc.so.6
+
+Thread 5 (Thread 0x7f9b4f61a700 (LWP 1298)):
+#0  0x0000003db44e5499 in syscall () from /lib64/libc.so.6
+#1  0x00007f9b5188086f in XrdSys::LinuxSemaphore::Wait (this=0x2aef590) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdSys/XrdSysLinuxSemaphore.hh:161
+#2  XrdCl::SyncQueue<XrdCl::JobManager::JobHelper>::Get (this=0x341cd78) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdCl/XrdClSyncQueue.hh:67
+#3  XrdCl::JobManager::RunJobs (this=0x341cd60) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:146
+#4  0x00007f9b51880a29 in RunRunnerThread (arg=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:33
+#5  0x0000003db4c07aa1 in start_thread () from /lib64/libpthread.so.0
+#6  0x0000003db44e8c4d in clone () from /lib64/libc.so.6
+
+Thread 4 (Thread 0x7f9b5001b700 (LWP 1297)):
+#0  0x0000003db44e5499 in syscall () from /lib64/libc.so.6
+#1  0x00007f9b5188086f in XrdSys::LinuxSemaphore::Wait (this=0x2aef590) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdSys/XrdSysLinuxSemaphore.hh:161
+#2  XrdCl::SyncQueue<XrdCl::JobManager::JobHelper>::Get (this=0x341cd78) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdCl/XrdClSyncQueue.hh:67
+#3  XrdCl::JobManager::RunJobs (this=0x341cd60) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:146
+#4  0x00007f9b51880a29 in RunRunnerThread (arg=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClJobManager.cc:33
+#5  0x0000003db4c07aa1 in start_thread () from /lib64/libpthread.so.0
+#6  0x0000003db44e8c4d in clone () from /lib64/libc.so.6
+
+Thread 3 (Thread 0x7f9b50a1c700 (LWP 1296)):
+#0  0x0000003db4c0f00d in nanosleep () from /lib64/libpthread.so.0
+#1  0x00007f9b51985753 in XrdSysTimer::Wait (mills=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdSys/XrdSysTimer.cc:239
+#2  0x00007f9b518255f7 in XrdCl::TaskManager::RunTasks (this=0x342a0d0) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClTaskManager.cc:244
+#3  0x00007f9b51825749 in RunRunnerThread (arg=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdCl/XrdClTaskManager.cc:37
+#4  0x0000003db4c07aa1 in start_thread () from /lib64/libpthread.so.0
+#5  0x0000003db44e8c4d in clone () from /lib64/libc.so.6
+
+Thread 2 (Thread 0x7f9b5141d700 (LWP 1295)):
+#0  0x0000003db44e9243 in epoll_wait () from /lib64/libc.so.6
+#1  0x00007f9b5198a804 in XrdSys::IOEvents::PollE::Begin (this=0x3406780, syncsem=<optimized out>, retcode=<optimized out>, eTxt=<optimized out>) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/./XrdSys/XrdSysIOEventsPollE.icc:213
+#2  0x00007f9b51986e75 in XrdSys::IOEvents::BootStrap::Start (parg=0x7ffca87765a0) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdSys/XrdSysIOEvents.cc:131
+#3  0x00007f9b51984f78 in XrdSysThread_Xeq (myargs=0x3406850) at /build/cmsbld/auto-builds/CMSSW_9_4_0_pre1-slc6_amd64_gcc630/build/CMSSW_9_4_0_pre1-build/BUILD/slc6_amd64_gcc630/external/xrootd/4.6.1-fmblme/xrootd-4.6.1/src/XrdSys/XrdSysPthread.cc:86
+#4  0x0000003db4c07aa1 in start_thread () from /lib64/libpthread.so.0
+#5  0x0000003db44e8c4d in clone () from /lib64/libc.so.6
+
+Thread 1 (Thread 0x7f9b5bd76940 (LWP 1258)):
+#0  0x0000003db44ac8dd in waitpid () from /lib64/libc.so.6
+#1  0x0000003db443e4e9 in do_system () from /lib64/libc.so.6
+#2  0x0000003db443e820 in system () from /lib64/libc.so.6
+#3  0x00007f9b5c2b4588 in TUnixSystem::StackTrace() () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCore.so
+#4  0x00007f9b5c2b6a3c in TUnixSystem::DispatchSignals(ESignals) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCore.so
+#5  <signal handler called>
+#6  0x00007f9b5b76f1bb in int TStreamerInfoActions::VectorLooper::ReadCollectionBasicType<float>(TBuffer&, void*, TStreamerInfoActions::TConfiguration const*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libRIO.so
+#7  0x00007f9b5b675a75 in TBufferFile::ApplySequence(TStreamerInfoActions::TActionSequence const&, void*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libRIO.so
+#8  0x00007f9b52b4c16c in TBranchElement::ReadLeavesMakeClass(TBuffer&) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libTree.so
+#9  0x00007f9b52b3207a in TBranch::GetEntry(long long, int) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libTree.so
+#10 0x00007f9b52b4a011 in TBranchElement::GetEntry(long long, int) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libTree.so
+#11 0x00007f9b52b8ccc1 in TTree::GetEntry(long long, int) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libTree.so
+#12 0x00007f9b51aff162 in ?? ()
+#13 0x00007f9b51aff060 in ?? ()
+#14 0x00007f9b51a26000 in ?? ()
+#15 0x00007ffca8777fe0 in ?? ()
+#16 0x00007ffca8778010 in ?? ()
+#17 0x0000000002b08430 in ?? ()
+#18 0x00007ffca8778480 in ?? ()
+#19 0x00007ffca8778030 in ?? ()
+#20 0x00007f9b592fcbd9 in cling::Interpreter::RunFunction(clang::FunctionDecl const*, cling::Value*) [clone .part.280] () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#21 0x00007f9b592fffad in cling::Interpreter::EvaluateInternal(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cling::CompilationOptions, cling::Value*, cling::Transaction**, unsigned long) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#22 0x00007f9b59300172 in cling::Interpreter::process(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cling::Value*, cling::Transaction**, bool) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#23 0x00007f9b59387a3f in cling::MetaProcessor::process(char const*, cling::Interpreter::CompilationResult&, cling::Value*, bool) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#24 0x00007f9b5928b241 in HandleInterpreterException(cling::MetaProcessor*, char const*, cling::Interpreter::CompilationResult&, cling::Value*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#25 0x00007f9b5929affd in TCling::ProcessLine(char const*, TInterpreter::EErrorCode*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#26 0x00007f9b5c19d369 in TApplication::ProcessLine(char const*, bool, int*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCore.so
+#27 0x00007f9b5c3fe68e in TRint::ProcessLineNr(char const*, char const*, int*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libRint.so
+#28 0x00007f9b5c3fe9df in TRint::HandleTermInput() () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libRint.so
+#29 0x00007f9b5c2b5fdd in TUnixSystem::CheckDescriptors() () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCore.so
+#30 0x00007f9b5c2b72cb in TUnixSystem::DispatchOneEvent(bool) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCore.so
+#31 0x00007f9b5c200794 in TSystem::InnerLoop() () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCore.so
+#32 0x00007f9b5c1ff3af in TSystem::Run() () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCore.so
+#33 0x00007f9b5c199caf in TApplication::Run(bool) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCore.so
+#34 0x00007f9b5c3fff02 in TRint::Run(bool) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libRint.so
+#35 0x0000000000400b9c in main ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+You may get help by asking at the ROOT forum http://root.cern.ch/forum.
+Only if you are really convinced it is a bug in ROOT then please submit a
+report at http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#6  0x00007f9b5b76f1bb in int TStreamerInfoActions::VectorLooper::ReadCollectionBasicType<float>(TBuffer&, void*, TStreamerInfoActions::TConfiguration const*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libRIO.so
+#7  0x00007f9b5b675a75 in TBufferFile::ApplySequence(TStreamerInfoActions::TActionSequence const&, void*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libRIO.so
+#8  0x00007f9b52b4c16c in TBranchElement::ReadLeavesMakeClass(TBuffer&) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libTree.so
+#9  0x00007f9b52b3207a in TBranch::GetEntry(long long, int) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libTree.so
+#10 0x00007f9b52b4a011 in TBranchElement::GetEntry(long long, int) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libTree.so
+#11 0x00007f9b52b8ccc1 in TTree::GetEntry(long long, int) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libTree.so
+#12 0x00007f9b51aff162 in ?? ()
+#13 0x00007f9b51aff060 in ?? ()
+#14 0x00007f9b51a26000 in ?? ()
+#15 0x00007ffca8777fe0 in ?? ()
+#16 0x00007ffca8778010 in ?? ()
+#17 0x0000000002b08430 in ?? ()
+#18 0x00007ffca8778480 in ?? ()
+#19 0x00007ffca8778030 in ?? ()
+#20 0x00007f9b592fcbd9 in cling::Interpreter::RunFunction(clang::FunctionDecl const*, cling::Value*) [clone .part.280] () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#21 0x00007f9b592fffad in cling::Interpreter::EvaluateInternal(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cling::CompilationOptions, cling::Value*, cling::Transaction**, unsigned long) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#22 0x00007f9b59300172 in cling::Interpreter::process(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cling::Value*, cling::Transaction**, bool) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#23 0x00007f9b59387a3f in cling::MetaProcessor::process(char const*, cling::Interpreter::CompilationResult&, cling::Value*, bool) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+#24 0x00007f9b5928b241 in HandleInterpreterException(cling::MetaProcessor*, char const*, cling::Interpreter::CompilationResult&, cling::Value*) () from /cvmfs/cms.cern.ch/slc6_amd64_gcc630/lcg/root/6.10.08-elfike2/lib/libCling.so
+===========================================================
