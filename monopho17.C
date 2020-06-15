@@ -2073,7 +2073,8 @@ void monopho17::Loop()
 		//in-time collection
 		for (int ipho = 0; ipho < nPho; ipho++)
 		{
-            if ((*phoEt)[ipho] > 230.0 && fabs((*phoEta)[ipho]) < 1.442 && (*phoR9)[ipho] > 0.8 && (*phoHoverE)[ipho] < 0.02197 && ((HLTPho >> 10 & 1) == 1))//&& HLTPho < 2048
+            if ((*phoEt)[ipho] > 230.0 && fabs((*phoEta)[ipho]) < 1.442 && (*phoR9)[ipho] > 0.8 && 
+		(*phoHoverE)[ipho] < 0.02197 && ((HLTPho >> 10 & 1) == 1))//&& HLTPho < 2048
             {
                 file12 << run << " " << event << " " << lumis << endl;
 				itpho.push_back(ipho);
@@ -2086,14 +2087,16 @@ void monopho17::Loop()
                 float PhoSep = 999;
 				for (int iipho = ipho + 1; iipho < nPho; iipho++)
 				{
-					Float_t deltaR = DeltaR((*phoEta)[ipho], (*phoPhi)[ipho], (*phoEta)[iipho], (*phoPhi)[iipho]);
+					Float_t deltaR = DeltaR((*phoEta)[ipho], (*phoPhi)[ipho], 
+								(*phoEta)[iipho], (*phoPhi)[iipho]);
 					if (deltaR < PhoSep)
 					{
 						PhoSep = deltaR;
 					}
                 
                     //collect the second photon
-                    if ((*phoEt)[iipho] > 10.0 && fabs((*phoEta)[iipho]) < 1.442 && (*phoR9)[iipho] > 0.8 && (*phoHoverE)[iipho] < 0.02197 && PhoSep > 0.2)
+                    if ((*phoEt)[iipho] > 10.0 && fabs((*phoEta)[iipho]) < 1.442 && 
+			(*phoR9)[iipho] > 0.8 && (*phoHoverE)[iipho] < 0.02197 && PhoSep > 0.2)
                     {
                         iiZpho.push_back(iipho);
                         itootZmatched.push_back(-1);
@@ -2106,7 +2109,8 @@ void monopho17::Loop()
 		//out-of-time collection
 		for (int opho = 0; opho < onPho; opho++)
 		{
-            if ((*ophoEt)[opho] > 230.0 && fabs((*ophoEta)[opho]) < 1.442 && (*ophoR9)[opho] > 0.8 && (*ophoHoverE)[opho] < 0.02197 && ((HLTPho >> 10 & 1) == 1))//&& HLTPho < 2048
+            if ((*ophoEt)[opho] > 230.0 && fabs((*ophoEta)[opho]) < 1.442 && (*ophoR9)[opho] > 0.8 && 
+		(*ophoHoverE)[opho] < 0.02197 && ((HLTPho >> 10 & 1) == 1))//&& HLTPho < 2048
             {
 				ootpho.push_back(opho);
 				ootitmatched.push_back(-1);
@@ -2119,14 +2123,16 @@ void monopho17::Loop()
                 float PhoSep = 999;
 				for (int oopho = opho + 1; oopho < nPho; oopho++)
 				{
-					Float_t deltaR = DeltaR((*ophoEta)[opho], (*ophoPhi)[opho], (*ophoEta)[oopho], (*ophoPhi)[oopho]);
+					Float_t deltaR = DeltaR((*ophoEta)[opho], (*ophoPhi)[opho], 
+								(*ophoEta)[oopho], (*ophoPhi)[oopho]);
 					if (deltaR < PhoSep)
 					{
 						PhoSep = deltaR;
 					}
 
                     //collect the second photon
-                    if ((*ophoEt)[oopho] > 10.0 && fabs((*ophoEta)[oopho]) < 1.442 && (*ophoR9)[oopho] > 0.8 && (*ophoHoverE)[oopho] < 0.02197)
+                    if ((*ophoEt)[oopho] > 10.0 && fabs((*ophoEta)[oopho]) < 1.442 && 
+			(*ophoR9)[oopho] > 0.8 && (*ophoHoverE)[oopho] < 0.02197)
                     {
                         ooZpho.push_back(oopho);
                         ootitZmatched.push_back(-1);
